@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Website List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Websites</h1>
+    <div class="websites" id="websites-container">
+    </div>
+    <button type="button" class="add-website-btn" onclick="toggleAddWebsiteForm()">
+        <img src="32360.png" alt="Add Website" width="30" height="30" style="filter:invert(70%);">
+    </button>
+    <div id="add-website-form-overlay"></div>
+    <div id="add-website-form-container">
+        <span id="close-form-btn" onclick="toggleAddWebsiteForm()">×</span>
+        <div id="add-website-form">
+            <input type="text" id="add-website-input" placeholder="Website Name">
+            <br>
+            <input type="url" id="add-url-input" placeholder="Website URL">
+            <br>
+            <input type="url" id="add-favicon-input" placeholder="Favicon URL (optional)">
+            <br>
+            <button id="add-website-submit" onclick="addWebsite()">Submit</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
