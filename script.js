@@ -32,18 +32,17 @@ document.addEventListener("DOMContentLoaded", function() {
     websitesContainer.innerHTML = '';
     for (const [website, data] of Object.entries(websitesData)) {
         const websiteButton = document.createElement('div');
-        websiteButton.className = "website-btn";
-            dataurl = ""
-            if (data.Url) {
-                dataurl = data.Url;
-            } else {
-                dataurl = data;
-            }
-        websiteButton.onclick = "window.location.href='"+dataurl+"';"
         websiteButton.innerHTML = `
             <img src="${data.FavIcon ? data.FavIcon : 'https://www.google.com/s2/favicons?sz=64&domain=' + (data.Url ? data.Url : data)}" alt="${website} favicon" width="50" height="50">
             <div class="website-name">${website}</div>
         `;
+            websiteButton.addEventListener('click', function() {
+            if (data.Url) {
+                window.location.href = data.Url;
+            } else {
+                window.location.href = data;
+            }
+        });
         websitesContainer.appendChild(websiteButton);
     }
 websitesContainer.innerHTML = websitesContainer.innerHTML + ` <button type="button" class="add-website-btn" onclick="toggleAddWebsiteForm()">
