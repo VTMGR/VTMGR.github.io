@@ -46,6 +46,9 @@ document.addEventListener("DOMContentLoaded", function() {
         `;
         websitesContainer.appendChild(websiteButton);
     }
+websitesContainer.innerHTML = websitesContainer.innerHTML + ` <button type="button" class="add-website-btn" onclick="toggleAddWebsiteForm()">
+        <img src="32360.png" alt="Add Website" width="30" height="30" style="filter:invert(70%);">
+    </button>`
         }
 
         function toggleAddWebsiteForm() {
