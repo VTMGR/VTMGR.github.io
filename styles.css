@@ -4,8 +4,6 @@
             font-family: Arial, sans-serif;
             text-align: center;
             position: relative;
-            width: 1020px;
-            height: 607px;
             margin: 0;
             padding: 0;
             overflow: hidden;
@@ -21,26 +19,6 @@
 .button {
   color: #FFFFFF;
 }
-        body {
-            background-color: #393B3D;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            position: relative;
-            width: 1020px;
-            height: 607px;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-        .websites {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
 
         .website-btn {
             margin: 10px;
@@ -83,8 +61,6 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 1020px;
-            height: 607px;
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 2;
             display: none;
@@ -216,8 +192,6 @@ a:active {
             position: fixed;
             top: 0;
             left: 0;
-            width: 1020px;
-            height: 607px;
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 2;
             display: none;
