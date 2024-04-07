@@ -31,7 +31,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const websitesContainer = document.getElementById('websites-container');
     websitesContainer.innerHTML = '';
     for (const [website, data] of Object.entries(websitesData)) {
-        const websiteButton = document.createElement('div');
+        const websiteButton = document.createElement('button');
+        websiteButton.className = "website-btn";
         websiteButton.innerHTML = `
             <img src="${data.FavIcon ? data.FavIcon : 'https://www.google.com/s2/favicons?sz=64&domain=' + (data.Url ? data.Url : data)}" alt="${website} favicon" width="50" height="50">
             <div class="website-name">${website}</div>
