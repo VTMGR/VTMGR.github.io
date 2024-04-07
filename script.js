@@ -3,6 +3,25 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
         function loadWebsites() {
+            if (!localStorage.getItem('websites')) {
+                localStorage.setItem('websites', JSON.stringify({
+    "Google": "https://google.com",
+    "Rule34": "https://rule34.xxx",
+    "Roblox": "https://roblox.com",
+    "Youtube": "https://youtube.com",
+    "Reddit": "https://reddit.com",
+    "Twitter": "https://twitter.com",
+    "ChatGPT": "https://chat.openai.com",
+    "YTGames": "https://www.youtube.com/playables?bp=EgZicm93c2U%3D",
+    "Flash Museum": "https://flashmuseum.org/",
+    "Minecraft": {
+        "Url": "/bg",
+        "FavIcon": "bg.png"
+    },
+    "CMG": "https://www.coolmathgames.com/",
+    "Minesweeper": "https://minesweeper.online/"
+}));
+            }
             const websitesData = JSON.parse(localStorage.getItem('websites')) || {};
             const websitesContainer = document.getElementById('websites-container');
             websitesContainer.innerHTML = '';
