@@ -27,21 +27,25 @@ document.addEventListener("DOMContentLoaded", function() {
     },
 }));
             }
-            const websitesData = JSON.parse(localStorage.getItem('websites')) || {};
-            const websitesContainer = document.getElementById('websites-container');
-            websitesContainer.innerHTML = '';
-            for (const [website, data] of Object.entries(websitesData)) {
-                const websiteButton = document.createElement('div');
-                websiteButton.className = "website-btn";
-                websiteButton.onclick = function() {
-                    window.location.href = data.url;
-                };
-                websiteButton.innerHTML = `
-                    <img src="${data.favicon ? data.favicon : 'https://www.google.com/s2/favicons?sz=64&domain=' + data.url}" alt="${website} favicon" width="50" height="50">
-                    <div class="website-name">${website}</div>
-                `;
-                websitesContainer.appendChild(websiteButton);
+    const websitesData = JSON.parse(localStorage.getItem('websites'));
+    const websitesContainer = document.getElementById('websites-container');
+    websitesContainer.innerHTML = '';
+    for (const [website, data] of Object.entries(websitesData)) {
+        const websiteButton = document.createElement('div');
+        websiteButton.className = "website-btn";
+        websiteButton.onclick = function() {
+            if (data.Url) {
+                window.location.href = data.Url;
+            } else {
+                window.location.href = data;
             }
+        };
+        websiteButton.innerHTML = `
+            <img src="${data.FavIcon ? data.FavIcon : 'https://www.google.com/s2/favicons?sz=64&domain=' + (data.Url ? data.Url : data)}" alt="${website} favicon" width="50" height="50">
+            <div class="website-name">${website}</div>
+        `;
+        websitesContainer.appendChild(websiteButton);
+    }
         }
 
         function toggleAddWebsiteForm() {
