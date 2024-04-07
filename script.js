@@ -1,0 +1,48 @@
+document.addEventListener("DOMContentLoaded", function() {
+            loadWebsites();
+        });
+
+        function loadWebsites() {
+            const websitesData = JSON.parse(localStorage.getItem('websites')) || {};
+            const websitesContainer = document.getElementById('websites-container');
+            websitesContainer.innerHTML = '';
+            for (const [website, data] of Object.entries(websitesData)) {
+                const websiteButton = document.createElement('div');
+                websiteButton.className = "website-btn";
+                websiteButton.onclick = function() {
+                    window.location.href = data.url;
+                };
+                websiteButton.innerHTML = `
+                    <img src="${data.favicon ? data.favicon : 'https://www.google.com/s2/favicons?sz=64&domain=' + data.url}" alt="${website} favicon" width="50" height="50">
+                    <div class="website-name">${website}</div>
+                `;
+                websitesContainer.appendChild(websiteButton);
+            }
+        }
+
+        function toggleAddWebsiteForm() {
+            var formOverlay = document.getElementById('add-website-form-overlay');
+            var formContainer = document.getElementById('add-website-form-container');
+            formOverlay.style.display = (formOverlay.style.display === 'none' || formOverlay.style.display === '') ? 'block' : 'none';
+            formContainer.style.display = (formContainer.style.display === 'none' || formContainer.style.display === '') ? 'block' : 'none';
+        }
+
+        function addWebsite() {
+            const websiteName = document.getElementById('add-website-input').value.trim();
+            const websiteUrl = document.getElementById('add-url-input').value.trim();
+            const websiteFavicon = document.getElementById('add-favicon-input').value.trim();
+
+            if (websiteName !== '' && websiteUrl !== '') {
+                const websitesData = JSON.parse(localStorage.getItem('websites')) || {};
+                websitesData[websiteName] = {
+                    url: websiteUrl,
+                    favicon: websiteFavicon
+                };
+                localStorage.setItem('websites', JSON.stringify(websitesData));
+                loadWebsites();
+                document.getElementById('add-website-input').value = "";
+                document.getElementById('add-url-input').value = "";
+                document.getElementById('add-favicon-input').value = "";
+                toggleAddWebsiteForm();
+            }
+        }
