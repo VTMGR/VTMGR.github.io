@@ -37,13 +37,13 @@ document.addEventListener("DOMContentLoaded", function() {
             <img src="${data.FavIcon ? data.FavIcon : 'https://www.google.com/s2/favicons?sz=64&domain=' + (data.Url ? data.Url : data)}" alt="${website} favicon" width="50" height="50">
             <div class="website-name">${website}</div>
         `;
-            websiteButton.addEventListener('click', function() {
+        websiteButton.onclick = function() {
             if (data.Url) {
                 window.location.href = data.Url;
             } else {
                 window.location.href = data;
             }
-        });
+        };
         websitesContainer.appendChild(websiteButton);
     }
 websitesContainer.innerHTML = websitesContainer.innerHTML + ` <button type="button" class="add-website-btn" onclick="toggleAddWebsiteForm()">
