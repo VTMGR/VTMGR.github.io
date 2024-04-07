@@ -19,7 +19,12 @@ document.addEventListener("DOMContentLoaded", function() {
         "FavIcon": "bg.png"
     },
     "CMG": "https://www.coolmathgames.com/",
-    "Minesweeper": "https://minesweeper.online/"
+    "Minesweeper": "https://minesweeper.online/",
+    "Kemono": "https://kemono.su",
+    "TL2": {
+        "Url": "/TL2WGL",
+        "FavIcon": "TL2WGL.png"
+    },
 }));
             }
             const websitesData = JSON.parse(localStorage.getItem('websites')) || {};
