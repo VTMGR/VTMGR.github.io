@@ -4,43 +4,42 @@
             font-family: Arial, sans-serif;
             text-align: center;
             position: relative;
+			width: 1020px;
+            height: 607px;
             margin: 0;
             padding: 0;
-            overflow: hidden;
+			overflow: hidden;
         }
-        .websites {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-.button {
-  color: #FFFFFF;
+.websites {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    max-width: 800px; /* Adjust according to your layout */
+    margin: 0 auto; /* Center align the container */
 }
 
-        .website-btn {
-            margin: 10px;
-            padding: 0;
-            border: 1px solid white;
-            background-color: #303133;
-            cursor: pointer;
-            border-radius: 25px;
-            min-width: 75px;
-            height: 75px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            flex-basis: calc(100% / 8 - 20px);
-        }
+.website-btn {
+    margin: 10px;
+    padding: 0;
+    border: 1px solid white;
+    background-color: #303133;
+    cursor: pointer;
+    border-radius: 25px;
+    min-width: 75px;
+    height: 75px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-basis: calc(100% / 8 - 20px); /* Set flex-basis to accommodate 8 buttons per line */
+}
         .website-btn img {
             width: 40px;
             height: 40px;
             border-radius: 15%;
-            image-rendering: pixelated;
+			image-rendering: pixelated;
         }
         .website-btn:hover .website-name {
             height: 1.2em;
@@ -61,22 +60,12 @@
             position: fixed;
             top: 0;
             left: 0;
+            width: 1020px;
+            height: 607px;
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 2;
             display: none;
         }
-a {
-    color: white;
-}
-a:visited {
-    color: white;
-}
-a:hover {
-    color: #ffffff;
-}
-a:active {
-    color: #ffffff;
-}
         #add-website-form-container {
             position: absolute;
             top: 48%;
@@ -87,7 +76,7 @@ a:active {
             border-radius: 10px;
             z-index: 3;
             display: none;
-            height: 70%;
+			height: 80%;
             width: 50%;
         }
         #add-website-form {
@@ -97,30 +86,31 @@ a:active {
             margin: 10px;
             padding: 10px;
             width: calc(100% - 50px);
-            height: 50px;
+			height: 50px;
             border-radius: 5px;
             border: 1px solid white;
             background-color: #303133;
             color: white;
+			
         }
-        #add-website-form input[type="text"] {
-            font-size: 25px;
+		#add-website-form input[type="text"] {
+			font-size: 25px;
         }
-        #add-website-form input[type="url"] {
-            font-size: 25px;
+		#add-website-form input[type="url"] {
+			font-size: 25px;
         }
         #add-website-submit {
             padding: 10px;
             background-image: linear-gradient(25deg,#1A1B1C,#303133);
             border: none;
             color: white;
-            top: 40px;
-            position: relative;
-            height: 80px;
+			top: 40px;
+			position: relative;
+			height: 80px;
             border-radius: 5px;
-            font-size: 25px;
+			font-size: 25px;
             cursor: pointer;
-            border: 1px solid white;
+			border: 1px solid white;
             width: calc(100% - 20px);
         }
         #close-form-btn {
@@ -150,122 +140,18 @@ a:active {
             width: 50px;
             height: 50px;
         }
-
-        .website-btn {
-            margin: 10px;
-            padding: 0;
-            border: 1px solid white;
-            background-color: #303133;
-            cursor: pointer;
-            border-radius: 25px;
-            min-width: 75px;
-            height: 75px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            flex-basis: calc(100% / 8 - 20px);
-        }
-        .website-btn img {
-            width: 40px;
-            height: 40px;
-            border-radius: 15%;
-            image-rendering: pixelated;
-        }
-        .website-btn:hover .website-name {
-            height: 1.2em;
-            transition: height 0.3s ease;
-        }
-        .website-btn:not(:hover) .website-name {
-            height: 0;
-            transition: height 0.3s ease;
-        }
-        .website-name {
-            margin-top: 5px;
-            font-size: 14px;
-            line-height: 1.2;
-            height: 0;
-            overflow: hidden;
-        }
-        #add-website-form-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 2;
+		.hidden {
             display: none;
-        }
-        #add-website-form-container {
-            position: absolute;
-            top: 48%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #303133;
-            padding: 20px;
-            border-radius: 10px;
-            z-index: 3;
-            display: none;
-            height: 70%;
-            width: 50%;
-        }
-        #add-website-form {
-            text-align: center;
-        }
-        #add-website-form input {
-            margin: 10px;
-            padding: 10px;
-            width: calc(100% - 50px);
-            height: 50px;
-            border-radius: 5px;
-            border: 1px solid white;
-            background-color: #303133;
-            color: white;
-        }
-        #add-website-form input[type="text"] {
-            font-size: 25px;
-        }
-        #add-website-form input[type="url"] {
-            font-size: 25px;
-        }
-        #add-website-submit {
-            padding: 10px;
-            background-image: linear-gradient(25deg,#1A1B1C,#303133);
-            border: none;
-            color: white;
-            top: 40px;
-            position: relative;
-            height: 80px;
-            border-radius: 5px;
-            font-size: 25px;
-            cursor: pointer;
-            border: 1px solid white;
-            width: calc(100% - 20px);
-        }
-        #close-form-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            font-size: 18px;
-        }
-        .add-website-btn {
-            position: relative;
-            z-index: 1;
-            margin: 10px;
-            padding: 0;
-            border: 1px solid white;
-            background-color: #303133;
-            cursor: pointer;
-            border-radius: 75px;
-            width: 75px;
-            height: 75px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .add-website-btn img {
-            width: 50px;
-            height: 50px;
-        }
+		}
+		a {
+			color: white;
+		}
+		a:visited {
+			color: white;
+		}
+		a:hover {
+			color: #ffffff;
+		}
+		a:active {
+			color: #ffffff;
+		}
