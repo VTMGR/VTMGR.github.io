@@ -32,7 +32,7 @@ const defaultWebsites = {
     };
 	const existingWebsites = JSON.parse(localStorage.getItem('websites')) || {};
     let mergedWebsites = { ...defaultWebsites, ...existingWebsites };
-function loadWebsites() {
+function loadWebsites(bypass=false) {
 
     localStorage.setItem('websites', JSON.stringify(mergedWebsites));
 
@@ -40,7 +40,7 @@ function loadWebsites() {
     websitesContainer.innerHTML = '';
 
     for (const [website, data] of Object.entries(mergedWebsites)) {
-		if (data["hide"]==null) {
+		if (data["hide"]==null || bypass==true) {
             const websiteButton = document.createElement('a');
             websiteButton.className = "website-btn";
             websiteButton.innerHTML = `
@@ -66,18 +66,8 @@ const targetSequenceTotal = 34; // Total sum to reveal hidden websites
 
 function checkSequence() {
     if (sequenceTotal === targetSequenceTotal) {
-        revealHiddenWebsites();
+        loadWebsites(true);
     }
-}
-
-function revealHiddenWebsites() {
-    const websitesData = mergedWebsites;
-    for (const [website, data] of Object.entries(websitesData)) {
-        if (data.hide) {
-            data.hide = null;
-        }
-    }
-    loadWebsites();
 }
 
 window.addEventListener("keydown", function(event) {
