@@ -99,7 +99,7 @@ document.getElementById("root").children[0].style["background"]="rgba(0,0,0,0)"
 document.getElementsByTagName("body")[0].style["background"]="rgba(0,0,0,0)"
 document.getElementsByTagName("body")[0].style["overflow"]="hidden"
     }
-}, checkInterval);
+}, 5000);
 }
 
 function findDivWithText() {
