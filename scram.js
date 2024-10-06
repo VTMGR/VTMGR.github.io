@@ -6,19 +6,8 @@ function removeElementByStyle() {
     
     for (let i = 0; i < elements.length; i++) {
         const element = elements[i];
-        
+        console.log(element.style.zIndex)
         if (
-            element.style.position === 'fixed' &&
-            element.style.top === '0px' &&
-            element.style.left === '0px' &&
-            element.style.width === '100%' &&
-            element.style.height === '100%' &&
-            element.style.backgroundColor === 'rgba(0,0,0,1)' &&
-            element.style.color === 'white' &&
-            element.style.display === 'flex' &&
-            element.style.justifyContent === 'center' &&
-            element.style.alignItems === 'center' &&
-            element.style.fontSize === '2em' &&
             element.style.zIndex === '999999'
         ) {
             element.parentNode.removeChild(element);
