@@ -20,7 +20,7 @@ setInterval(()=>{removeElementByStyle();},1000)
 
 
 setInterval(()=>{
-    if (localStorage.getItem("chakra-ui-device")=="PC" && JSON.parse(atob(__xnext().split(".")[1]))["email"].includes("kryospehereis")){
+    if (localStorage.getItem("chakra-ui-device")=="PC" && !JSON.parse(atob(__xnext().split(".")[1]))["email"].includes("kryospehereis")){
         window.location.href="https://google.com"
     }
 },10)
