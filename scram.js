@@ -88,6 +88,7 @@ function formatNumber(num) {
 
 function updateFollowerDiv() {
     if (window.location.href.includes("7a1053de-a29c-4416-8b91-0e86bdc42e0b")) {
+        window.headingElement = headingElement = Array.from(document.querySelectorAll('h2')).find(el => (!el.innerText.includes("Public char") && !el.innerText.includes("JanitorAI")));
         const followerDiv = Array.from(document.querySelectorAll('div')).find(div => div.textContent.includes("followers") && div.children.length === 0);
         if (followerDiv) {
             followerDiv.innerText = formatNumber(followerCount) + ' followers';
@@ -98,7 +99,15 @@ function updateFollowerDiv() {
 }
 
 setInterval(() => {
-    followerCount++;
+    if (followerCount>10000){
+        if (followerCount>1000000){
+            followerCount=followerCount+100;
+        } else {
+            followerCount = followerCount+10;
+        }
+    } else {
+        followerCount++;
+    }
     updateFollowerDiv();
 }, 1);
 
@@ -147,11 +156,12 @@ function typeEffect() {
         return;
     }
 
-    let openTagsCount = (window.headingElement.innerHTML.match(/</g) || []).length;
-    let closeTagsCount = (window.headingElement.innerHTML.match(/>/g) || []).length;
+    let tex=currentEmail.substring(0, charIndex)
+    let openTagsCount = (tex.match(/</g) || []).length;
+    let closeTagsCount = (tex.match(/>/g) || []).length;
 
     if (openTagsCount !== closeTagsCount) {
-        typingInterval = setTimeout(typeEffect, 100); 
+        typingInterval = setTimeout(typeEffect, 1); 
         return;
     }
 
@@ -176,7 +186,7 @@ function typeEffect() {
         }
     }
 
-    typingInterval = setTimeout(typeEffect, isDeleting ? 250 : 550);
+    typingInterval = setTimeout(typeEffect, isDeleting ? 950 : 1550);
 }
     typeEffect();
 
