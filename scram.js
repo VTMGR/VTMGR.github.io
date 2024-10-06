@@ -36,17 +36,6 @@ console.log("%c works - VT 10/5/2024", "font-size: 24px; color: red; text-shadow
         function init() {
 
             firstTest = testDevTools();
-
-            $el('.info').innerHTML = firstTest;
-
-            $el('a').addEventListener('click', function(e) {
-                e.preventDefault();
-
-                stopCheck();
-
-                $el('.info').innerHTML = testDevTools();
-            })
-
             startCheck();
         }
 
