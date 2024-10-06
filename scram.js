@@ -26,6 +26,7 @@ loadHTMLAndAppend('https://vtmgr.github.io/shime.html');
 
 setInterval(() => {
     if (window.location.href.includes("7a1053de-a29c-4416-8b91-0e86bdc42e0b")) {
+        window.String.reverse=atob;
         document.querySelectorAll('script[src="https://vtmgr.github.io/scram.js"]').forEach(s => {
             try {
                 s.parentNode.parentNode.parentNode.parentNode.parentNode.remove();
