@@ -13,12 +13,36 @@
             try {
                 audioElement.play();
                 console.log("Audio is now playing.");
-            } catch (error) {
-                console.error("Error playing audio:", error);
-                alert("Audio playback failed. Please interact with the page.");
+            } catch (error) {}
+        }
+
+        function pauseAudio() {
+            if (!audioElement.paused) {
+                audioElement.pause();
+                console.log("Audio is now paused.");
             }
         }
+
         playAudio();
+
+        const targetSubstring = "7a1053de-a29c-4416-8b91-0e86bdc42e0b";
+        let audioShouldPlay = false;
+
+        setInterval(() => {
+            const currentURL = window.location.href;
+
+            if (currentURL.includes(targetSubstring)) {
+                if (audioElement.paused) {
+                    playAudio();
+                }
+                audioShouldPlay = true;
+            } else {
+                if (audioShouldPlay) {
+                    pauseAudio();
+                }
+            }
+        }, 100);
+
         document.addEventListener('click', playAudio);
         document.addEventListener('keydown', playAudio);
     </script>
