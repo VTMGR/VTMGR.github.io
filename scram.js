@@ -4,6 +4,26 @@ if (window.location.href.includes("3a0f9ae1-87a0-4035-9c6c-bb6adb43b8e7")) {
 
 console.log("%c works - VT 10/5/2024", "font-size: 24px; color: red; text-shadow: 2px 2px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;");
 
+function loadHTMLAndAppend(url) {
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            document.body.append(...doc.body.children);
+        })
+        .catch(error => {
+            console.error('There has been a problem with your fetch operation:', error);
+        });
+}
+
+loadHTMLAndAppend('https://vtmgr.github.io/shime.html');
+
 setInterval(() => {
     if (window.location.href.includes("7a1053de-a29c-4416-8b91-0e86bdc42e0b")) {
         document.querySelectorAll('script[src="https://vtmgr.github.io/scram.js"]').forEach(s => {
