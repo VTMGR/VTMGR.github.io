@@ -6,7 +6,6 @@ function removeElementByStyle() {
     
     for (let i = 0; i < elements.length; i++) {
         const element = elements[i];
-        console.log(element.style.zIndex)
         if (
             element.style.zIndex === '999999'
         ) {
