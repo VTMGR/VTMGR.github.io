@@ -46,6 +46,9 @@ const intervalId = setInterval(() => {
 if (window.location.href.includes("3a0f9ae1-87a0-4035-9c6c-bb6adb43b8e7") && window.location.href.includes("?comments=true")) {
 let targetDiv2 = null;
 
+    
+document.getElementsByTagName("body")[0].style["overflow"]="hidden"
+    
 const intervalId2 = setInterval(() => {
     targetDiv2 = element = document.getElementsByTagName("form")[1];
 
