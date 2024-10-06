@@ -39,11 +39,12 @@ function updateFollowButton() {
 }
 
 function updateFollowerDiv() {
-    const followerDiv = Array.from(document.querySelectorAll('div')).find(div => div.textContent.includes("followers"));
+    const followerDiv = Array.from(document.querySelectorAll('div')).find(div => div.textContent.includes("followers") && div.children.length === 0);
     if (followerDiv) {
         followerDiv.innerText = '0 followers';
     }
 }
+
 
 updateFollowButton();
 updateFollowerDiv();
