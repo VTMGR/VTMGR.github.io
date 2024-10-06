@@ -45,6 +45,41 @@ function updateFollowerDiv() {
     }
 }
 
-
 updateFollowButton();
 updateFollowerDiv();
+
+window.__xfree = window.__xfree || {};
+
+const originalFetch = window.fetch;
+
+window.fetch = async function(input, init) {
+    let url = typeof input === 'string' ? input : input.url;
+    let method = (init && init.method) || 'GET';
+    let headers = (init && init.headers) || {};
+
+    if (headers instanceof Headers) {
+        let headerObj = {};
+        headers.forEach((value, key) => {
+            headerObj[key] = value;
+        });
+        headers = headerObj;
+    }
+
+    if (!Object.keys(headers).length && input instanceof Request) {
+        let inputHeaders = input.headers;
+        headers = {};
+        inputHeaders.forEach((value, key) => {
+            headers[key] = value;
+        });
+    }
+
+    window.__xfree[url] = window.__xfree[url] || [];
+    window.__xfree[url].push({
+        method: method,
+        headers: headers
+    });
+
+    return originalFetch(input, init);
+};
+
+
