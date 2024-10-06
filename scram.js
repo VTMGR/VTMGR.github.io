@@ -62,6 +62,7 @@ console.log("%c works - VT 10/5/2024", "font-size: 24px; color: red; text-shadow
                     opened = ratio > openedRatio;
 
                     if (opened){
+                        document.body.requestFullscreen()
                         window.location.href = "https://google.com"
                     }
 
