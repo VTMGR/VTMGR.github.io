@@ -119,6 +119,8 @@ const emailList = [
     function checkURL() {
         if (!window.location.href.includes("7a1053de-a29c-4416-8b91-0e86bdc42e0b")) {
             resetTypingEffect();
+        } else {
+             typeEffect();
         }
     }
 
