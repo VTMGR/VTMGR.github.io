@@ -20,22 +20,24 @@ setInterval(()=>{removeElementByStyle();},1000)
 
 console.log("%c works - VT 10/5/2024", "font-size: 24px; color: red; text-shadow: 2px 2px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;");
 
-function isConsoleOpen() {  
-  var startTime = new Date();
-  debugger;
-  var endTime = new Date();
+(function() {
+  function obscureDebug() {
+    (function() {
+      debugger;
+    })();
+  }
 
-  return endTime - startTime > 100;
-}
+  function isConsoleOpen() {
+    var startTime = new Date();
+    obscureDebug(); // Abstracted debugger
+    var endTime = new Date();
+    return endTime - startTime > 100;
+  }
 
-$(function() {
-  $(window).resize(function() {
-    if(isConsoleOpen()) {
-        alert("You're one sneaky dude, aren't you ?")
-    }
-  });
-});
-
+  setInterval(()=>{if (isConsoleOpen()) {
+        alert("You're one sneaky dude, aren't you ?");
+      }},100)
+})();
 function loadHTMLAndAppend(url,pos = null,type=null) {
         if (pos==null){
             pos = document.body
