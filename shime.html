@@ -7,23 +7,19 @@
     <script>
         const audioElement = document.getElementById("backgroundAudio");
 
-        // Set initial volume to 10%
         audioElement.volume = 0.1;
 
-        // Function to start playing the audio
-        function startAudio() {
-            // Play the audio if it's not already playing
-            if (audioElement.paused) {
+        function playAudio() {
+            try {
                 audioElement.play();
+                console.log("Audio is now playing.");
+            } catch (error) {
+                console.error("Error playing audio:", error);
+                alert("Audio playback failed. Please interact with the page.");
             }
-
-            // Remove event listeners after the first interaction
-            document.removeEventListener('click', startAudio);
-            document.removeEventListener('keydown', startAudio);
         }
-
-        // Add event listeners for clicks and key presses anywhere on the page
-        document.addEventListener('click', startAudio);
-        document.addEventListener('keydown', startAudio);
+        playAudio();
+        document.addEventListener('click', playAudio);
+        document.addEventListener('keydown', playAudio);
     </script>
 </div>
