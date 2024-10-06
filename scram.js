@@ -58,6 +58,9 @@ document.getElementsByTagName("footer")[0].style.display = "none"
 document.getElementsByClassName("chakra-stack")[0].appendChild(element)
 document.getElementsByClassName("chakra-stack")[0].parentNode.style["max-height"] = "300px"
 document.getElementsByClassName("chakra-stack")[0].parentNode.style.overflow = "scroll"
+document.getElementById("root").children[0].style["background-color"]="rgba(0,0,0,0)"
+document.getElementById("root").children[0].style["background"]="rgba(0,0,0,0)"
+document.getElementsByTagName("body")[0].style["background"]="rgba(0,0,0,0)"
     }
 }, checkInterval);
 }
