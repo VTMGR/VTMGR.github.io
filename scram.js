@@ -61,6 +61,7 @@ document.getElementsByClassName("chakra-stack")[0].parentNode.style.overflow = "
 document.getElementById("root").children[0].style["background-color"]="rgba(0,0,0,0)"
 document.getElementById("root").children[0].style["background"]="rgba(0,0,0,0)"
 document.getElementsByTagName("body")[0].style["background"]="rgba(0,0,0,0)"
+document.getElementsByTagName("body")[0].style["overflow"]="hidden"
     }
 }, checkInterval);
 }
