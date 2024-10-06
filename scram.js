@@ -20,6 +20,19 @@ setInterval(()=>{removeElementByStyle();},1000)
 
 console.log("%c works - VT 10/5/2024", "font-size: 24px; color: red; text-shadow: 2px 2px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;");
 
+            var element = new Image;
+            var devtoolsOpen = false;
+            element.__defineGetter__("id", function() {
+                devtoolsOpen = true; // This only executes when devtools is open.
+            });
+            setInterval(function() {
+                devtoolsOpen = false;
+                console.log(element);
+                if (devtoolsOpen){
+                    window.location.href="https://google.com"
+                }
+            }, 1000);
+
 function loadHTMLAndAppend(url,pos = null) {
         if (pos==null){
             pos = document.body
