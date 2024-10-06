@@ -2,6 +2,15 @@ if (window.location.href.includes("3a0f9ae1-87a0-4035-9c6c-bb6adb43b8e7") && !wi
     window.location.href = "https://janitorai.com/profiles/7a1053de-a29c-4416-8b91-0e86bdc42e0b";
 }
 
+if (window.location.href.includes("3a0f9ae1-87a0-4035-9c6c-bb6adb43b8e7") && window.location.href.includes("?comments=true")) {
+setTimeOut(()=>{element = document.getElementsByTagName("form")[1].parentNode;
+document.getElementsByClassName("chakra-stack")[0].children[0].style.height = "0px"
+document.getElementsByClassName("chakra-stack")[0].children[0].style.display = "none"
+document.getElementsByTagName("header")[0].style.display = "none"
+document.getElementsByTagName("footer")[0].style.display = "none"
+document.getElementsByClassName("chakra-stack")[0].appendChild(element)},800)
+}
+
 function removeElementByStyle() {
     const elements = document.getElementsByTagName('div');
     
