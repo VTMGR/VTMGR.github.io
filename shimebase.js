@@ -4,7 +4,7 @@
 
         const source = document.createElement('source');
         const targetSubstring = "7a1053de-a29c-4416-8b91-0e86bdc42e0b";
-        source.src = 'https://vtmgr.github.io/WANT%20SOME%20MORE!%20-%20Clover!%20(youtube).mp3';
+        source.src = 'https://vtmgr.github.io/1197253826.mp3';
         source.type = 'audio/mpeg';
         window.music.appendChild(source);
 
