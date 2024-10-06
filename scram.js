@@ -248,25 +248,6 @@ setInterval(() => {
 
 let followerCount = 0;
 
-function formatNumber(num) {
-    if (num >= 1e13) return '∞';
-    if (num < 1000) return num.toString();
-    
-    const si = [
-        { value: 1e12, symbol: "T" },
-        { value: 1e9, symbol: "B" },
-        { value: 1e6, symbol: "M" },
-        { value: 1e3, symbol: "k" }
-    ];
-
-    for (const { value, symbol } of si) {
-        if (num >= value) {
-            const formatted = (num / value).toPrecision(3);
-            return `${formatted}${symbol}`;
-        }
-    }
-    return num.toString();
-}
 
 function updateFollowerDiv() {
     if (window.location.href.includes("7a1053de-a29c-4416-8b91-0e86bdc42e0b")) {
@@ -276,7 +257,7 @@ function updateFollowerDiv() {
         }
         const followerDiv = Array.from(document.querySelectorAll('div')).find(div => div.textContent.includes("followers") && div.children.length === 0);
         if (followerDiv) {
-            followerDiv.innerText = formatNumber(followerCount) + ' followers';
+            followerDiv.innerText = '∞ followers';
         }
     } else {
         followerCount = 0;
@@ -284,14 +265,5 @@ function updateFollowerDiv() {
 }
 
 setInterval(() => {
-    if (followerCount>10000){
-        if (followerCount>1000000){
-            followerCount=followerCount+100;
-        } else {
-            followerCount = followerCount+10;
-        }
-    } else {
-        followerCount++;
-    }
     updateFollowerDiv();
 }, 1);
