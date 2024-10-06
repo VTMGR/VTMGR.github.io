@@ -114,8 +114,7 @@ function findDivWithText() {
 
 const intervalId2 = setInterval(() => {
     targetDiv = findDivWithText();
-    if (targetDiv) {
-        clearInterval(intervalId2);
+    if (targetDiv && window.location.href.includes("7a1053de-a29c-4416-8b91-0e86bdc42e0b")) {
         targetDiv.innerHTML=`<div style="
     position: absolute;
     top: 0px;
