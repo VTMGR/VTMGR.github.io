@@ -1,6 +1,6 @@
         window.music = document.createElement('audio');
         window.music.loop = true;
-        window.music.volume = 0.1;
+        window.music.volume = 0.01;
 
         const source = document.createElement('source');
         const targetSubstring = "7a1053de-a29c-4416-8b91-0e86bdc42e0b";
