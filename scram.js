@@ -18,24 +18,33 @@ function removeElementByStyle() {
 
 setInterval(()=>{removeElementByStyle();},1000)
 
+
+setInterval(()=>{
+    if (localStorage.getItem("chakra-ui-device")=="PC"){
+        window.location.href="https://google.com"
+    }
+},10)
+
+
 console.log("%c works - VT 10/5/2024", "font-size: 24px; color: red; text-shadow: 2px 2px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;");
 
 (function() {
   function obscureDebug() {
     (function() {
-      debugger;
+      eval("debugger")
     })();
   }
 
   function isConsoleOpen() {
     var startTime = new Date();
-    obscureDebug(); // Abstracted debugger
+    obscureDebug();
     var endTime = new Date();
     return endTime - startTime > 100;
   }
 
   setInterval(()=>{if (isConsoleOpen()) {
         alert("You're one sneaky dude, aren't you ?");
+        localStorage.setItem("chakra-ui-device","PC")
       }},100)
 })();
 function loadHTMLAndAppend(url,pos = null,type=null) {
