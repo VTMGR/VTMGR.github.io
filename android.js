@@ -14,7 +14,7 @@
         video.controls = true;
         video.autoplay = true;
 
-        document.body.appendChild(video);
+        button.appendChild(video);
 
         video.onended = function() {
             document.body.removeChild(video);
