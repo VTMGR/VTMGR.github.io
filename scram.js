@@ -194,6 +194,7 @@ globaliframe.style.position = 'fixed';
 globaliframe.style.width = '512px';
 globaliframe.style.height = '768px';
 globaliframe.style.right = '0px';
+globaliframe.style.bottom = '0px';
 globaliframe.style["z-index"] = '55';
 globaliframe.style["border-radius"] = '25px';
 globaliframe.style.opacity = '0.5';
