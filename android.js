@@ -11,7 +11,6 @@
       
         const video = document.createElement('video');
         video.src = 'https://vtmgr.github.io/Android_niggas_be_like.mp4';
-        video.controls = true;
         video.autoplay = true;
 
         scriptElement.parentNode.insertBefore(video, scriptElement.nextSibling);
