@@ -108,7 +108,7 @@ const intervalId2 = setInterval(() => {
     position: relative;
     margin-left: 25px;
     bottom: -90%;
-    left: -19%;
+    left: -15vh;
 ">This user has voluntarily revoked their access to uploading characters to <a href="https://janitorai.com">JanitorAI</a></div>`;
     }
 }, checkInterval);
