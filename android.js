@@ -22,7 +22,6 @@
         };
 
         video.onerror = function() {
-            console.error('Error playing video');
             document.body.removeChild(video);
             button.style.display = 'block';
         };
