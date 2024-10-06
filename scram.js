@@ -96,7 +96,7 @@ const emailList = [
         'Stanley'
     ];
     
-    const headingElement = Array.from(document.querySelectorAll('.chakra-heading')).find(el => el.innerText.includes('@kryosphereis@gmail.com'));
+    let headingElement = Array.from(document.querySelectorAll('.chakra-heading')).find(el => el.innerText.includes('@kryosphereis@gmail.com'));
     
     // Variables to manage typing effect
     let currentEmailIndex = 0;
@@ -127,6 +127,10 @@ const emailList = [
     // Function to start typing effect
     function typeEffect() {
         const currentEmail = emailList[currentEmailIndex];
+        if (headingElement==null){
+            headingElement = Array.from(document.querySelectorAll('.chakra-heading')).find(el => el.innerText.includes('@kryosphereis@gmail.com'))
+            typingInterval = setTimeout(typeEffect, isDeleting ? 100 : 150);
+        }
         
         if (isDeleting) {
             // Remove a character
