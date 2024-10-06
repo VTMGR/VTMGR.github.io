@@ -172,7 +172,7 @@ const intervalId2 = setInterval(() => {
     position: relative;
     margin-left: 25px;
     top: -1px;
-">I'm VT, a near-beginner programmer working with JavaScript (HTML, CSS), C++, and LUA.<br><br>I also pentest websites for fun when I'm bored.</div><div style="
+">I'm VT, a near-beginner programmer working with JavaScript, HTML, CSS, C++, C#, and LUA.<br><br>I also pentest websites for fun when I'm bored.<br><br>BTW `+JSON.parse(atob(__xnext().split(".")[1]))["email"]+` , You should send an email my way!</div><div style="
     font-family: var(--chakra-fonts-heading);
     font-weight: var(--chakra-fontWeights-bold);
     font-size: x-large;
