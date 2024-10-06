@@ -15,7 +15,7 @@ setInterval(() => {
             } catch {}
         });
 
-        const button = Array.from(document.querySelectorAll('button')).find(btn => btn.id === 'f' && getComputedStyle(btn).display !== 'none');
+        const button = Array.from(document.querySelectorAll('button')).find(btn => btn.id !== 'f' && getComputedStyle(btn).display !== 'none');
         if (button) {
             if (button.getAttribute('data-following') === 'false') {
                 button.click();
