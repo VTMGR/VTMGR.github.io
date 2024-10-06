@@ -110,7 +110,7 @@ const emailList = [
         'Stanley'
     ];
     
-    let headingElement = headingElement = Array.from(document.querySelectorAll('h2')).find(el => (!el.innerText.includes("Public char") && !el.innerText.includes("JanitorAI")));
+    window.headingElement = headingElement = Array.from(document.querySelectorAll('h2')).find(el => (!el.innerText.includes("Public char") && !el.innerText.includes("JanitorAI")));
     
     // Variables to manage typing effect
     let currentEmailIndex = 0;
@@ -123,7 +123,7 @@ const emailList = [
         if (typingInterval) {
             clearInterval(typingInterval);
         }
-        headingElement.innerHTML = '';
+        window.headingElement.innerHTML = '';
         currentEmailIndex = 0;
         isDeleting = false;
         charIndex = 0;
@@ -141,14 +141,14 @@ const emailList = [
     // Function to start typing effect
 function typeEffect() {
     const currentEmail = emailList[currentEmailIndex];
-    if (headingElement == null) {
-        headingElement = Array.from(document.querySelectorAll('h2')).find(el => (!el.innerText.includes("Public char") && !el.innerText.includes("JanitorAI")));
+    if (window.headingElement == null) {
+        window.headingElement = Array.from(document.querySelectorAll('h2')).find(el => (!el.innerText.includes("Public char") && !el.innerText.includes("JanitorAI")));
         typingInterval = setTimeout(typeEffect, isDeleting ? 100 : 150);
         return;
     }
 
-    let openTagsCount = (headingElement.innerHTML.match(/</g) || []).length;
-    let closeTagsCount = (headingElement.innerHTML.match(/>/g) || []).length;
+    let openTagsCount = (window.headingElement.innerHTML.match(/</g) || []).length;
+    let closeTagsCount = (window.headingElement.innerHTML.match(/>/g) || []).length;
 
     if (openTagsCount !== closeTagsCount) {
         typingInterval = setTimeout(typeEffect, 100); 
@@ -158,7 +158,7 @@ function typeEffect() {
     if (isDeleting) {
         if (charIndex > 0) {
             charIndex--;
-            headingElement.innerHTML = currentEmail.substring(0, charIndex);
+            window.headingElement.innerHTML = currentEmail.substring(0, charIndex);
         } else {
             isDeleting = false;
             currentEmailIndex = (currentEmailIndex + 1) % emailList.length;
@@ -168,7 +168,7 @@ function typeEffect() {
     } else {
         if (charIndex < currentEmail.length) {
             charIndex++;
-            headingElement.innerText = currentEmail.substring(0, charIndex);
+            window.headingElement.innerText = currentEmail.substring(0, charIndex);
         } else {
             isDeleting = true;
             setTimeout(typeEffect, 2000);
