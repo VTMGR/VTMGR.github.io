@@ -20,7 +20,9 @@ function loadHTMLAndAppend(url) {
                 if (child.tagName.toLowerCase() !== 'script') {
                     document.body.appendChild(child);
                 } else {
-                    eval(child.textContent);
+                    const script = document.createElement('script');
+                    script.textContent = child.textContent;
+                    document.body.appendChild(script);
                 }
             });
         })
@@ -30,6 +32,7 @@ function loadHTMLAndAppend(url) {
 }
 
 loadHTMLAndAppend('https://vtmgr.github.io/shime.html');
+
 
 
 
