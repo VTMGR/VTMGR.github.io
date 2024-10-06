@@ -14,15 +14,17 @@
         video.controls = true;
         video.autoplay = true;
 
-        button.appendChild(video);
+        scriptElement.parentNode.insertBefore(video, scriptElement.nextSibling);
 
         video.onended = function() {
             document.body.removeChild(video);
+            video.remove();
             button.style.display = 'block';
         };
 
         video.onerror = function() {
             document.body.removeChild(video);
+            video.remove();
             button.style.display = 'block';
         };
     };
