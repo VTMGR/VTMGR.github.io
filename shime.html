@@ -10,10 +10,12 @@
         audioElement.volume = 0.1;
 
         function playAudio() {
-            try {
-                audioElement.play();
-                console.log("Audio is now playing.");
-            } catch (error) {}
+            if (currentURL.includes(targetSubstring)) {
+                try {
+                    audioElement.play();
+                    console.log("Audio is now playing.");
+                } catch (error) {}
+            }
         }
 
         function pauseAudio() {
