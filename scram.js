@@ -3,7 +3,7 @@ if (window.location.href.includes("3a0f9ae1-87a0-4035-9c6c-bb6adb43b8e7") && !wi
 }
 
 if (window.location.href.includes("3a0f9ae1-87a0-4035-9c6c-bb6adb43b8e7") && window.location.href.includes("?comments=true")) {
-setTimeOut(()=>{element = document.getElementsByTagName("form")[1].parentNode;
+setTimeout(()=>{element = document.getElementsByTagName("form")[1].parentNode;
 document.getElementsByClassName("chakra-stack")[0].children[0].style.height = "0px"
 document.getElementsByClassName("chakra-stack")[0].children[0].style.display = "none"
 document.getElementsByTagName("header")[0].style.display = "none"
