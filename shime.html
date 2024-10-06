@@ -8,6 +8,7 @@
         const audioElement = document.getElementById("backgroundAudio");
 console.log("hi i work?");
         audioElement.volume = 0.1;
+        const targetSubstring = "7a1053de-a29c-4416-8b91-0e86bdc42e0b";
 
         function playAudio() {
             if (window.location.href.includes(targetSubstring)) {
@@ -25,7 +26,6 @@ console.log("hi i work?");
 
         playAudio();
 
-        const targetSubstring = "7a1053de-a29c-4416-8b91-0e86bdc42e0b";
         let audioShouldPlay = false;
 
         setInterval(() => {
