@@ -158,7 +158,7 @@ return z+t[zz]}
 
 const iframe = document.createElement('iframe');
 iframe.src = "https://janitorai.com/characters/3a0f9ae1-87a0-4035-9c6c-bb6adb43b8e7?comments=true";
-iframe.style.position = 'fixed';
+iframe.style.position = 'absolute';
 iframe.style.width = '100%';
 iframe.style.height = '300px';
 iframe.style.bottom = '80px';
