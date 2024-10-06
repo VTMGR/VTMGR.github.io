@@ -191,8 +191,8 @@ return z+t[zz]}
 const globaliframe = document.createElement('iframe');
 globaliframe.src = "https://pict.chat/#VTMGRl";
 globaliframe.style.position = 'fixed';
-globaliframe.style.width = '512px;';
-globaliframe.style.height = '768px;';
+globaliframe.style.width = '512px';
+globaliframe.style.height = '768px';
 globaliframe.style.right = '0px';
 globaliframe.style["z-index"] = '55';
 globaliframe.style["border-radius"] = '25px';
