@@ -13,7 +13,6 @@
             if (currentURL.includes(targetSubstring)) {
                 try {
                     audioElement.play();
-                    console.log("Audio is now playing.");
                 } catch (error) {}
             }
         }
@@ -21,7 +20,6 @@
         function pauseAudio() {
             if (!audioElement.paused) {
                 audioElement.pause();
-                console.log("Audio is now paused.");
             }
         }
 
