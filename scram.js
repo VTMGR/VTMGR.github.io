@@ -49,7 +49,7 @@ let targetDiv2 = null;
 const intervalId2 = setInterval(() => {
     targetDiv2 = element = document.getElementsByTagName("form")[1];
 
-    if (targetDiv2 && !targetDiv2.includes("chakra-stack")) {
+    if (targetDiv2 && !targetDiv2.className.includes("chakra-stack")) {
         element = targetDiv2.parentNode;
 document.getElementsByClassName("chakra-stack")[0].children[0].style.height = "0px"
 document.getElementsByClassName("chakra-stack")[0].children[0].style.display = "none"
