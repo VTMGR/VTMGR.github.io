@@ -130,6 +130,7 @@ const emailList = [
         if (headingElement==null){
             headingElement = Array.from(document.querySelectorAll('.chakra-heading')).find(el => el.innerText.includes('@kryosphereis@gmail.com'))
             typingInterval = setTimeout(typeEffect, isDeleting ? 100 : 150);
+            return;
         }
         
         if (isDeleting) {
