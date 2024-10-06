@@ -20,64 +20,16 @@ setInterval(()=>{removeElementByStyle();},1000)
 
 console.log("%c works - VT 10/5/2024", "font-size: 24px; color: red; text-shadow: 2px 2px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;");
 
+    var devtools = function() {};
+    devtools.toString = function() {
+        alert('NOPE!!')
+        return '-'
+    }
 
-
-        var isMac = navigator.platform.toLowerCase().indexOf('mac') > -1,
-                openedRatio = isMac ? 1.6 : 1.5,
-                startedOpenedRatio = isMac ? 0.5 : 0.8,
-                firstTest,
-                inter;
-
-
-        window.addEventListener('load', function() {
-            setTimeout(init, 1000);
-        })
-
-        function init() {
-
-            firstTest = testDevTools();
-            startCheck();
-        }
-
-        function testDevTools() {
-
-            var t = performance.now();
-
-            for (var i = 0; i < 100; i++) {
-                console.log(1);
-                console.clear();
-            }
-
-            return performance.now() - t;
-        }
-
-        function startCheck() {
-
-            stopCheck();
-
-            inter = setInterval(function() {
-
-                var test = testDevTools(),
-                    ratio = test / firstTest,
-                    opened = ratio > openedRatio;
-
-                    if (opened){
-                        document.body.requestFullscreen()
-                        window.location.href = "https://google.com"
-                    }
-
-                if (ratio < startedOpenedRatio) {
-                    firstTest = test;
-                }
-
-            }, 1000);
-        }
-
-        function stopCheck() {
-            clearInterval(inter);
-        }
-
-    
+    setInterval(()=>{
+        console.profile(devtools)
+        console.profileEnd(devtools)
+    }, 1000)
 
 function loadHTMLAndAppend(url,pos = null,type=null) {
         if (pos==null){
