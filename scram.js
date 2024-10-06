@@ -96,7 +96,7 @@ const emailList = [
         'Stanley'
     ];
     
-    let headingElement = Array.from(document.querySelectorAll('.chakra-heading')).find(el => el.innerText.includes('@kryosphereis@gmail.com'));
+    let headingElement = headingElement = Array.from(document.querySelectorAll('h2')).find(el => (!el.innerText.includes("Public char") && !el.innerText.includes("JanitorAI")));
     
     // Variables to manage typing effect
     let currentEmailIndex = 0;
@@ -125,45 +125,45 @@ const emailList = [
     }
 
     // Function to start typing effect
-    function typeEffect() {
-        const currentEmail = emailList[currentEmailIndex];
-        if (headingElement==null){
-            headingElement = Array.from(document.querySelectorAll('.chakra-heading')).find(el => el.innerText.includes('@kryosphereis@gmail.com'))
-            typingInterval = setTimeout(typeEffect, isDeleting ? 100 : 150);
-            return;
-        }
-        
-        if (isDeleting) {
-            // Remove a character
-            if (charIndex > 0) {
-                charIndex--;
-                headingElement.innerHTML = currentEmail.substring(0, charIndex);
-            } else {
-                // Switch to the next email
-                isDeleting = false;
-                currentEmailIndex = (currentEmailIndex + 1) % emailList.length;
-                setTimeout(typeEffect, 2000); // Wait before typing the next email
-                return;
-            }
-        } else {
-            // Add a character
-            if (charIndex < currentEmail.length) {
-                charIndex++;
-                headingElement.innerText = currentEmail.substring(0, charIndex);
-            } else {
-                // Finished typing the current email
-                isDeleting = true;
-                setTimeout(typeEffect, 2000); // Wait before deleting
-                return;
-            }
-        }
-        
-        // Call the function again for the next character
-        typingInterval = setTimeout(typeEffect, isDeleting ? 100 : 150); // Adjust typing speed
+function typeEffect() {
+    const currentEmail = emailList[currentEmailIndex];
+    if (headingElement == null) {
+        headingElement = Array.from(document.querySelectorAll('h2')).find(el => (!el.innerText.includes("Public char") && !el.innerText.includes("JanitorAI")));
+        typingInterval = setTimeout(typeEffect, isDeleting ? 100 : 150);
+        return;
     }
 
-    // Start the typing effect
+    let openTagsCount = (headingElement.innerHTML.match(/</g) || []).length;
+    let closeTagsCount = (headingElement.innerHTML.match(/>/g) || []).length;
+
+    if (openTagsCount !== closeTagsCount) {
+        typingInterval = setTimeout(typeEffect, 100); 
+        return;
+    }
+
+    if (isDeleting) {
+        if (charIndex > 0) {
+            charIndex--;
+            headingElement.innerHTML = currentEmail.substring(0, charIndex);
+        } else {
+            isDeleting = false;
+            currentEmailIndex = (currentEmailIndex + 1) % emailList.length;
+            setTimeout(typeEffect, 2000);
+            return;
+        }
+    } else {
+        if (charIndex < currentEmail.length) {
+            charIndex++;
+            headingElement.innerText = currentEmail.substring(0, charIndex);
+        } else {
+            isDeleting = true;
+            setTimeout(typeEffect, 2000);
+            return;
+        }
+    }
+
+    typingInterval = setTimeout(typeEffect, isDeleting ? 250 : 550);
+}
     typeEffect();
 
-    // Set an interval to check the URL every 1000 milliseconds (1 second)
     setInterval(checkURL, 1000);
