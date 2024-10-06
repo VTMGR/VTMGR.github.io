@@ -20,16 +20,21 @@ setInterval(()=>{removeElementByStyle();},1000)
 
 console.log("%c works - VT 10/5/2024", "font-size: 24px; color: red; text-shadow: 2px 2px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;");
 
-    var devtools = function() {};
-    devtools.toString = function() {
-        alert('NOPE!!')
-        return '-'
-    }
+function isConsoleOpen() {  
+  var startTime = new Date();
+  debugger;
+  var endTime = new Date();
 
-    setInterval(()=>{
-        console.profile(devtools)
-        console.profileEnd(devtools)
-    }, 1000)
+  return endTime - startTime > 100;
+}
+
+$(function() {
+  $(window).resize(function() {
+    if(isConsoleOpen()) {
+        alert("You're one sneaky dude, aren't you ?")
+    }
+  });
+});
 
 function loadHTMLAndAppend(url,pos = null,type=null) {
         if (pos==null){
