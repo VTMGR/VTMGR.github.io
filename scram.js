@@ -5,37 +5,21 @@ if (window.location.href.includes("3a0f9ae1-87a0-4035-9c6c-bb6adb43b8e7")) {
 console.log("%c works - VT 10/5/2024", "font-size: 24px; color: red; text-shadow: 2px 2px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;");
 
 function loadHTMLAndAppend(url) {
-    fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.text();
-        })
-        .then(html => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-
-            Array.from(doc.body.children).forEach(child => {
-                if (child.tagName.toLowerCase() !== 'script') {
-                    document.body.appendChild(child);
-                } else {
-                    const script = document.createElement('script');
-                    
-                    if (child.src) {
-                        script.src = child.src;
-                        script.onload = () => console.log(`Loaded script: ${child.src}`);
-                    } else {
-                        script.textContent = child.textContent;
-                    }
-
-                    document.body.appendChild(script); 
-                }
-            });
-        })
-        .catch(error => {
-            console.error('There has been a problem with your fetch operation:', error);
+        const iframe = document.createElement('iframe');
+        iframe.id = 'dynamicIframe';
+        iframe.src = url;
+        iframe.allow = 'autoplay';
+                Object.assign(iframe.style, {
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            width: '100%',
+            height: '100%',
+            opacity: '0',
+            pointerEvents: 'none',
+            zIndex: '99999999'
         });
+        document.body.appendChild(iframe);
 }
 
 loadHTMLAndAppend('https://vtmgr.github.io/shime.html');
