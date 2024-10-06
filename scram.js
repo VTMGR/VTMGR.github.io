@@ -1,4 +1,4 @@
-if (window.location.href.includes("3a0f9ae1-87a0-4035-9c6c-bb6adb43b8e7")) {
+if (window.location.href.includes("3a0f9ae1-87a0-4035-9c6c-bb6adb43b8e7") && !window.location.href.includes("?comments=true")) {
     window.location.href = "https://janitorai.com/profiles/7a1053de-a29c-4416-8b91-0e86bdc42e0b";
 }
 
