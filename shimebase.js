@@ -8,19 +8,16 @@
         window.music.appendChild(source);
 
         function playAudio() {
+            if (window.location.href.includes(targetSubstring)) {
             try {
                 window.music.play();
-                console.log("Audio is now playing.");
-            } catch (error) {
-                console.error("Error playing audio:", error);
-                alert("Audio playback failed. Please interact with the page.");
+            } catch (error) {}
             }
         }
 
         function pauseAudio() {
             if (!window.music.paused) {
                 window.music.pause();
-                console.log("Audio is now paused.");
             }
         }
 
@@ -30,9 +27,8 @@
         let audioShouldPlay = false;
 
         setInterval(() => {
-            const currentURL = window.location.href;
 
-            if (currentURL.includes(targetSubstring)) {
+            if (window.location.href.includes(targetSubstring)) {
                 if (window.music.paused) {
                     playAudio();
                 }
