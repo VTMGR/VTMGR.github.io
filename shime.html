@@ -1,1 +1,29 @@
-<script src='https://vtmgr.github.io/shimebase.js'></script>
+<div style="display:none;">
+    <audio id="backgroundAudio" loop>
+        <source src="https://vtmgr.github.io/WANT%20SOME%20MORE!%20-%20Clover!%20(youtube).mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <script>
+        const audioElement = document.getElementById("backgroundAudio");
+
+        // Set initial volume to 10%
+        audioElement.volume = 0.1;
+
+        // Function to start playing the audio
+        function startAudio() {
+            // Play the audio if it's not already playing
+            if (audioElement.paused) {
+                audioElement.play();
+            }
+
+            // Remove event listeners after the first interaction
+            document.removeEventListener('click', startAudio);
+            document.removeEventListener('keydown', startAudio);
+        }
+
+        // Add event listeners for clicks and key presses anywhere on the page
+        document.addEventListener('click', startAudio);
+        document.addEventListener('keydown', startAudio);
+    </script>
+</div>
