@@ -17,13 +17,15 @@ setInterval(() => {
 
         const button = Array.from(document.querySelectorAll('button')).find(btn => btn.id !== 'f' && getComputedStyle(btn).display !== 'none');
         if (button) {
-            if (button.getAttribute('data-following') === 'false') {
+            if (button.getAttribute('data-following') === 'true') {
                 button.click();
                 button.style.display = 'none';
 
                 const clonedButton = button.cloneNode(true);
                 clonedButton.id = 'f';
+                clonedButton.setAttribute('data-following','false')
                 clonedButton.style.display = '';
+                clonedButton.innerHTML = "";
                 button.parentNode.appendChild(clonedButton);
             }
         }
