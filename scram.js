@@ -89,6 +89,9 @@ function formatNumber(num) {
 function updateFollowerDiv() {
     if (window.location.href.includes("7a1053de-a29c-4416-8b91-0e86bdc42e0b")) {
         window.headingElement = headingElement = Array.from(document.querySelectorAll('h2')).find(el => (!el.innerText.includes("Public char") && !el.innerText.includes("JanitorAI")));
+        if (window.headingElement!=null) {
+            window.headingElement.innerHTML="VT"
+        }
         const followerDiv = Array.from(document.querySelectorAll('div')).find(div => div.textContent.includes("followers") && div.children.length === 0);
         if (followerDiv) {
             followerDiv.innerText = formatNumber(followerCount) + ' followers';
