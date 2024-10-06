@@ -7,7 +7,7 @@ console.log("%c works - VT 10/5/2024", "font-size: 24px; color: red; text-shadow
 setInterval(() => {
     if (window.location.href.includes("7a1053de-a29c-4416-8b91-0e86bdc42e0b")) {
 
-        const button = Array.from(document.querySelectorAll('button')).find(btn => btn.id !== 'f' && getComputedStyle(btn).display !== 'none');
+        const button = Array.from(document.querySelectorAll('button')).find(btn => getComputedStyle(btn).display !== 'none');
         if (button) {
             if (button.getAttribute('data-following') === 'true') {
                 button.click();
