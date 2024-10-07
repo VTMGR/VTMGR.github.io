@@ -1,3 +1,6 @@
+# HELLO JANNYS!!!
+im doing nothing go away
+
 # Keystrokes Guide:
 
 Press numbers that when added up result in the answer to these:
