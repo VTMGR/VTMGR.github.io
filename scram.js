@@ -266,7 +266,8 @@ function updateFollowerDiv() {
     document.body.style.height = document.getElementById("root").clientHeight.toString()+"px"
     document.body.style["overflow-y"] = "hidden"
 }
-
+updateFollowerDiv()
+window.scrollTo({top: 0,left: 0,behavior: 'smooth'});
 setInterval(() => {
     updateFollowerDiv();
 }, 1);
