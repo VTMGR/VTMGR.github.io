@@ -38,7 +38,7 @@ console.log("%c works - VT 10/5/2024", "font-size: 24px; color: red; text-shadow
 function obscureDebug() {
      if (localStorage.getItem("chakra-ui-device")=="PC" && !whoiam.includes("kryospehereis")){
         window.location.href="https://google.com"}
-      eval("debugger")
+      debugger
   }
 
   function isConsoleOpen() {
