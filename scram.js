@@ -262,6 +262,8 @@ function updateFollowerDiv() {
     } else {
         followerCount = 0;
     }
+    document.body.style.height = document.getElementById("root").clientHeight.toString()+"px"
+    document.body.style["overflow-y"] = "hidden"
 }
 
 setInterval(() => {
