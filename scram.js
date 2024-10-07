@@ -195,22 +195,7 @@ const intervalId2 = setInterval(() => {
 }, checkInterval);
 
 return z+t[zz]}
-if (window.location.href.includes("7a1053de-a29c-4416-8b91-0e86bdc42e0b")) {
-const globaliframe = document.createElement('iframe');
-globaliframe.src = "https://pict.chat/#VTMGRl";
-globaliframe.style.position = 'fixed';
-globaliframe.style.width = '512px';
-globaliframe.style.height = '768px';
-globaliframe.style.right = '0px';
-globaliframe.style.bottom = '0px';
-globaliframe.style["z-index"] = '55';
-globaliframe.style["border-radius"] = '25px';
-globaliframe.style.opacity = '0.5';
-globaliframe.id = 'PICTOCHAT';
-globaliframe.style.display = 'block';
 
-document.body.appendChild(globaliframe);
-}
 const iframe = document.createElement('iframe');
 iframe.src = "https://janitorai.com/characters/3a0f9ae1-87a0-4035-9c6c-bb6adb43b8e7?comments=true";
 iframe.style.position = 'absolute';
