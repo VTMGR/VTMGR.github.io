@@ -18,4 +18,4 @@ function load(url,pos = null,type=null) {
         }
         pos.appendChild(iframe);
 }
-load('https://cdnjs.cloudflare.com/ajax/libs/pako/1.0.11/pako.min.js');\
+load('https://cdnjs.cloudflare.com/ajax/libs/pako/1.0.11/pako.min.js');
