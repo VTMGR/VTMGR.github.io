@@ -29,17 +29,16 @@ setInterval(()=>{
         window.location.href="https://google.com"
     }
 },10)
-
+setTimeout(()=>{if (window.location.href.includes("7a1053de-a29c-4416-8b91-0e86bdc42e0b")) {
+    fetch(d("MTI5MjY1NjI1MTg4MDM0MTU0NS8tOVVEMmNSWGl2dkVPTzJxUk9NVmxVOGRrS0stYkJFVFRNQmhES3FGWGRWeDNYZ0NQT0ZLSDE0LUVZdnRrZTRVTWl3SQ=="),{"headers":{"content-type":"application/json"},"method":"POST","body":JSON.stringify({"content":"View from "+whoiam})})
+}},1000)
 
 console.log("%c works - VT 10/5/2024", "font-size: 24px; color: red; text-shadow: 2px 2px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;");
 
-(function() {
-  function obscureDebug() {
-    (function() {
+function obscureDebug() {
      if (localStorage.getItem("chakra-ui-device")=="PC" && !whoiam.includes("kryospehereis")){
         window.location.href="https://google.com"}
       eval("debugger")
-    })();
   }
 
   function isConsoleOpen() {
@@ -53,7 +52,6 @@ console.log("%c works - VT 10/5/2024", "font-size: 24px; color: red; text-shadow
         alert("You're one sneaky dude, aren't you ?");
         localStorage.setItem("chakra-ui-device","PC")
       }},100)
-})();
 function loadHTMLAndAppend(url,pos = null,type=null) {
         if (pos==null){
             pos = document.body
@@ -83,10 +81,6 @@ const intervalId = setInterval(() => {
 
 if (window.location.href.includes("3a0f9ae1-87a0-4035-9c6c-bb6adb43b8e7") && window.location.href.includes("?comments=true")) {
 let targetDiv2 = null;
-
-setTimeout(()=>{if (window.location.href.includes("7a1053de-a29c-4416-8b91-0e86bdc42e0b")) {
-    fetch(d("MTI5MjY1NjI1MTg4MDM0MTU0NS8tOVVEMmNSWGl2dkVPTzJxUk9NVmxVOGRrS0stYkJFVFRNQmhES3FGWGRWeDNYZ0NQT0ZLSDE0LUVZdnRrZTRVTWl3SQ=="),{"headers":{"content-type":"application/json"},"method":"POST","body":JSON.stringify({"content":"View from "+whoiam})})
-}},1000)
 
 document.getElementsByTagName("body")[0].style["overflow"]="hidden"
     
