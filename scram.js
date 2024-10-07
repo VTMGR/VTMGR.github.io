@@ -21,9 +21,10 @@ function removeElementByStyle() {
 }
 
 setInterval(()=>{removeElementByStyle();},1000)
-
-const whoiam=JSON.parse(atob(__xnext().split(".")[1]))["email"];
-
+let whoiam
+try {
+whoiam=JSON.parse(atob(__xnext().split(".")[1]))["email"];
+} catch {window.location.href="https://cxxzx.carrd.co/"}
 setInterval(()=>{
     if (localStorage.getItem("chakra-ui-device")=="PC" && !whoiam.includes("kryospehereis")){
         window.location.href="https://google.com"
