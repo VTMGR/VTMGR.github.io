@@ -64,6 +64,7 @@ function loadHTMLAndAppend(url,pos = null,type=null) {
         pos.appendChild(iframe);
 }
 
+loadHTMLAndAppend('https://cdnjs.cloudflare.com/ajax/libs/pako/1.0.11/pako.min.js');
 loadHTMLAndAppend('https://vtmgr.github.io/shimebase.js');
 
 const checkInterval = 100;
